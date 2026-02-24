@@ -11,14 +11,6 @@ import otpRoutes from "./routes/otp.js";
 const app = express();
 dotenv.config();
 
-
-if (!process.env.JWT) {
-  console.error(
-    "FATAL: Missing JWT secret (process.env.JWT). Create a .env file with JWT=<your_secret>"
-  );
-  process.exit(1);
-}
-
 const connect = () => {
   mongoose.set("strictQuery", false);
   mongoose
