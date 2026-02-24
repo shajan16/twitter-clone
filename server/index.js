@@ -11,7 +11,6 @@ import otpRoutes from "./routes/otp.js";
 const app = express();
 dotenv.config();
 
-
 const connect = () => {
   mongoose.set("strictQuery", false);
   mongoose
