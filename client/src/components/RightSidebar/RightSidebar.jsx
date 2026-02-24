@@ -16,24 +16,22 @@ const RightSidebar = () => {
   useEffect(() => {
     const fetchSuggestedUsers = async () => {
       try {
-        // Fetch all users and filter out current user and already followed users
-        // Note: You might want to create a dedicated API endpoint for this
+
         const response = await axios.get("/users/all");
         const allUsers = response.data || [];
         
-        // Filter out current user and users already being followed
+        
         const filtered = allUsers
           .filter(
             (user) =>
               user._id !== currentUser?._id &&
               !currentUser?.following?.includes(user._id)
           )
-          .slice(0, 3); // Show top 3 suggestions
+          .slice(0, 3); 
         
         setSuggestedUsers(filtered);
       } catch (err) {
         console.log("Error fetching suggested users:", err);
-        // Fallback to empty array if API doesn't exist
         setSuggestedUsers([]);
       }
     };

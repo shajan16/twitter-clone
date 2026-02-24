@@ -51,6 +51,5 @@
   },
   "overrides": {
     "typescript": "4.9.5"
-  },
-  "proxy": "https://twitter-clone-server-mnfp.onrender.com/api"
+  }
 }

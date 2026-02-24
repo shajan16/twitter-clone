@@ -15,15 +15,14 @@ const Home = () => {
         <Signin />
       ) : (
         <>
-          <Navbar />
-        <div className="grid grid-cols-1 md:grid-cols-4 mt-20">
-          <div className="px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 mt-20 pb-16 md:pb-0">
+          <div className="px-6 hidden md:block">
             <LeftSidebar />
           </div>
           <div className="col-span-2 border-x-2 border-t-slate-800 px-6">
             <MainTweet />
           </div>
-          <div className="">
+          <div className="mb-10">
             <RightSidebar />
           </div>
         </div>

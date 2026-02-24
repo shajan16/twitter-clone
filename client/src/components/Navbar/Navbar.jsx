@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full md:fixed md:top-0 md:left-0 md:right-0 md:z-10 bg-white">
+    <div className="w-full fixed top-0 left-0 right-0 z-10 bg-white">
     <div className="grid grid-cols-1 md:grid-cols-4 my-5 justify-center">
       <div className="mx-auto md:mx-0">
         <img
@@ -31,7 +31,7 @@ const Navbar = () => {
         />
       </div>
 
-      <div className="col-span-2 md:border-x-2 md:border-slate-200 md:px-6 my-6 md:my-0">
+      <div className="col-span-2 md:border-x-2 md:border-slate-200 md:px-6 my-6 md:my-0 hidden md:block">
         <div className="flex justify-between items-center">
           <h2 className="font-bold text-2xl">
             {location.includes("profile") ? (
@@ -46,7 +46,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="px-0 md:px-6 mx-auto relative">
+      <div className="px-0 md:px-6 mx-auto relative hidden md:block">
         <form onSubmit={handleSearch} className="relative">
           <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
           <input

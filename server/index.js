@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auths.js";
@@ -23,6 +24,9 @@ const connect = () => {
     });
 };
 
+app.use(cors({
+  origin: "*",
+}));
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/users", userRoutes);
@@ -40,7 +44,7 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
-app.listen(8000, () => {
+app.listen(process.env.PORT || 8000, () => {
   connect();
-  console.log("Listening to port 8000");
+  console.log("Listening to port", process.env.PORT || 8000);
 });

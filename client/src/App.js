@@ -6,13 +6,15 @@ import Profile from "./pages/Profile/Profile";
 import Explore from "./pages/Explore/Explore";
 import Signin from "./pages/Signin/Signin";
 import Navbar from "./components/Navbar/Navbar";
+import MobileNav from "./components/MobileNav/MobileNav";
 import Error from "./pages/Error/Error";
 
 const Layout = () => {
   return (
     <div className="w-full">
-      {/* <Navbar /> */}
-      <Outlet></Outlet>
+      <Navbar />
+      <Outlet />
+      <MobileNav />
     </div>
   );
 };
