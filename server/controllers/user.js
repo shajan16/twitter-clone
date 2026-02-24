@@ -20,7 +20,7 @@ export const getAllUsers = async (req, res, next) => {
   }
 };
 export const update = async (req, res, next) => {
-  if (req.params.id === req.user.id) {
+  if (req.params.id === req.body.id) {
     try {
       const updatedUser = await User.findByIdAndUpdate(
         req.params.id,
@@ -40,7 +40,7 @@ export const update = async (req, res, next) => {
   }
 };
 export const deleteUser = async (req, res, next) => {
-  if (req.params.id === req.user.id) {
+  if (req.params.id === req.body.id) {
     try {
       await User.findByIdAndDelete(req.params.id);
       await Tweet.remove({ userId: req.params.id });

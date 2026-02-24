@@ -9,12 +9,11 @@ import {
 } from "../controllers/user.js";
 import { uploadImage } from "../controllers/image.js";
 import { upload } from "../cloudinary.js";
-import { verifyToken } from "../verifyToken.js";
 
 const router = express.Router();
 
 // Update User
-router.put("/:id", verifyToken, update);
+router.put("/:id", update);
 
 // Get All Users
 router.get("/all", getAllUsers);
@@ -23,15 +22,15 @@ router.get("/all", getAllUsers);
 router.get("/find/:id", getUser);
 
 // Delete User
-router.delete("/:id", verifyToken, deleteUser);
+router.delete("/:id", deleteUser);
 
 // Follow
-router.put("/follow/:id", verifyToken, follow);
+router.put("/follow/:id", follow);
 
 // Unfollow
-router.put("/unfollow/:id", verifyToken, unFollow);
+router.put("/unfollow/:id", unFollow);
 
 // Upload Image
-router.post("/upload-image", verifyToken, upload.single('image'), uploadImage);
+router.post("/upload-image", upload.single('image'), uploadImage);
 
 export default router;

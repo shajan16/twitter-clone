@@ -1,5 +1,4 @@
 import express from "express";
-import { verifyToken } from "../verifyToken.js";
 import {
   createTweet,
   deleteTweet,
@@ -15,19 +14,19 @@ import { uploadAudioTweet, upload } from "../controllers/audio.js";
 const router = express.Router();
 
 // Create a Tweet
-router.post("/", verifyToken, createTweet);
+router.post("/", createTweet);
 
 // Create an Audio Tweet
-router.post("/audio", verifyToken, upload.single("audio"), uploadAudioTweet);
+router.post("/audio", upload.single("audio"), uploadAudioTweet);
 
 // Delete a Tweet
-router.delete("/:id", verifyToken, deleteTweet);
+router.delete("/:id", deleteTweet);
 
 // Like or Dislike a Tweet
 router.put("/:id/like", likeOrDislike);
 
 // Add a comment
-router.post("/:id/comment", verifyToken, addComment);
+router.post("/:id/comment", addComment);
 
 // Delete a comment
 router.delete("/:tweetId/comment/:commentId", verifyToken, deleteComment);

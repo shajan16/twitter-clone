@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import "./App.css";
 import Home from "./pages/Home/Home";
@@ -10,11 +11,13 @@ import MobileNav from "./components/MobileNav/MobileNav";
 import Error from "./pages/Error/Error";
 
 const Layout = () => {
+  const { currentUser } = useSelector((state) => state.user);
+
   return (
     <div className="w-full">
-      <Navbar />
+      {currentUser && <Navbar />}
       <Outlet />
-      <MobileNav />
+      {currentUser && <MobileNav />}
     </div>
   );
 };
