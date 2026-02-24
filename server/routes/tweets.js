@@ -29,7 +29,7 @@ router.put("/:id/like", likeOrDislike);
 router.post("/:id/comment", addComment);
 
 // Delete a comment
-router.delete("/:tweetId/comment/:commentId", verifyToken, deleteComment);
+router.delete("/:tweetId/comment/:commentId", deleteComment);
 
 // get all timeline tweets
 router.get("/timeline/:id", getAllTweets);

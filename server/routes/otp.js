@@ -7,7 +7,7 @@ const router = express.Router();
 router.post("/send", sendOTP);
 
 // Verify OTP
-router.post("/verify", verifyToken, verifyOTP);
+router.post("/verify", verifyOTP);
 
 export default router;
 
