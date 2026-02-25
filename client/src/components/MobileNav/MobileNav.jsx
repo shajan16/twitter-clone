@@ -3,11 +3,18 @@ import { Link, useLocation } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import TagIcon from "@mui/icons-material/Tag";
 import PersonIcon from "@mui/icons-material/Person";
-import { useSelector } from "react-redux";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../redux/userSlice";
 
 const MobileNav = () => {
   const location = useLocation();
   const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around py-2 z-10">
@@ -29,6 +36,10 @@ const MobileNav = () => {
           <span className="text-xs">Profile</span>
         </div>
       </Link>
+      <div className="flex flex-col items-center p-2 rounded-lg text-gray-500 cursor-pointer" onClick={handleLogout}>
+        <LogoutIcon />
+        <span className="text-xs">Logout</span>
+      </div>
     </div>
   );
 };
